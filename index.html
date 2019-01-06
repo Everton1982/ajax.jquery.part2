@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX WHITH JQUERY MODO SIMPLES</title>
+</head>
+
+<body>
+
+    <h1>AJAX jQuery</h1>
+    <div id="output"></div>
+    <button id="click">Clique aqui</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $('#click').click(webData);
+
+        function webData() {
+            var url = 'https://api.spacexdata.com/v3/launches/'
+            $.get(url, output)
+
+        }
+
+        function output(data) {
+            console.log(data[1]);
+
+            $('#output').html('<h2>' + data[1].flight_number + '</h2><p>' + data[1].details + '</p>')
+        }
+    </script>
+
+</body>
+
+</html>
